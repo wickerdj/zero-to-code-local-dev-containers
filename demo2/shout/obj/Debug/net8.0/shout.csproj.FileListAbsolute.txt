@@ -1,0 +1,14 @@
+/home/wick/code/presentation/d2/shout/bin/Debug/net8.0/shout
+/home/wick/code/presentation/d2/shout/bin/Debug/net8.0/shout.deps.json
+/home/wick/code/presentation/d2/shout/bin/Debug/net8.0/shout.runtimeconfig.json
+/home/wick/code/presentation/d2/shout/bin/Debug/net8.0/shout.dll
+/home/wick/code/presentation/d2/shout/bin/Debug/net8.0/shout.pdb
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.GeneratedMSBuildEditorConfig.editorconfig
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.AssemblyInfoInputs.cache
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.AssemblyInfo.cs
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.csproj.CoreCompileInputs.cache
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.dll
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/refint/shout.dll
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.pdb
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/shout.genruntimeconfig.cache
+/home/wick/code/presentation/d2/shout/obj/Debug/net8.0/ref/shout.dll

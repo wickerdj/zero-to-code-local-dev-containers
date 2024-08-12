@@ -1,0 +1,24 @@
+services:
+  echo:
+    image: echo
+    build:
+      context: .
+      dockerfile: echo/Dockerfile
+    ports:
+      - 5059:5059
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached
+
+  shout:
+    image: shout
+    depends_on:
+      - echo
+    build:
+      context: .
+      dockerfile: shout/Dockerfile
+    environment:
+      - ECHO_SERVICE_URL=http://echo:5059/e
+    command: sleep infinity
+    volumes:
+      - .:/workspace:cached
