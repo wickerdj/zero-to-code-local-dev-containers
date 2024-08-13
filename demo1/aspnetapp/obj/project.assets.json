@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/wick/code/presentation/demo1/aspnetapp/aspnetapp.csproj",
+      "projectUniqueName": "/home/wick/code/presentation/zero-to-code-local-dev-containers/demo1/aspnetapp/aspnetapp.csproj",
       "projectName": "aspnetapp",
-      "projectPath": "/home/wick/code/presentation/demo1/aspnetapp/aspnetapp.csproj",
+      "projectPath": "/home/wick/code/presentation/zero-to-code-local-dev-containers/demo1/aspnetapp/aspnetapp.csproj",
       "packagesPath": "/home/wick/.nuget/packages/",
-      "outputPath": "/home/wick/code/presentation/demo1/aspnetapp/obj/",
+      "outputPath": "/home/wick/code/presentation/zero-to-code-local-dev-containers/demo1/aspnetapp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/wick/.nuget/NuGet/NuGet.Config"
