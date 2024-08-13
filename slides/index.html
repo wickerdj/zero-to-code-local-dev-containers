@@ -94,7 +94,7 @@
 
 ### Pain of Traditional Local Development
 
-- Inconsistent Environments 
+- Inconsistent Environments
 - Dependency Management Headaches
 - New Team Member Onboarding Delays
 </div>
@@ -135,7 +135,7 @@
 - Images
 - Volumes
 - Containers
-- Docker Engine /  Docker Daemon
+- Docker Engine / Docker Daemon
 - Registry
 
 notes:
@@ -143,7 +143,7 @@ notes:
 - **Images:** Docker images are blueprints for creating containers, containing the application code, libraries, and runtime environment.
 - **Volumes:** Volumes are a way to persist data outside of the container, allowing modifications to be saved on the host machine.
 - **Containers:** Containers are lightweight, isolated instances of an image, running a single process.
-- **Engine:** Open source containerization tech  for building and containerizing application. Made up of dockerd (docker daemon), APIs, and CLI
+- **Engine:** Open source containerization tech for building and containerizing application. Made up of dockerd (docker daemon), APIs, and CLI
 - **Registry:** A place to store and access container images.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -158,7 +158,7 @@ notes:
 
 ### Building with Dockerfile
 
-``` dockerfile
+```dockerfile
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
@@ -198,53 +198,56 @@ DEMO 1
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Multi-Container Applications with Docker Compose 
+### Multi-Container Applications with Docker Compose
+
 - Services
 - Networks
 - Volumes
 - Config
 - Secrets
 
-notes: 
+notes:
 
-DEMO  2
+DEMO 2
 
 - **Docker Compose:** Docker Compose is a tool for managing complex projects with multiple interacting containers (e.g., database and web server).
-- **Compose File:**  `docker-compose.yml` file defining services (containers) and their configurations.
+- **Compose File:** `docker-compose.yml` file defining services (containers) and their configurations.
 - **Running Services:** Use `docker-compose up` to build and start all the defined services in the application.
 - **Service Linking:** Docker Compose links services together for communication within the multi-container environment.\
-- **Services:** Defines a   computing resource. Backed by containers.
+- **Services:** Defines a computing resource. Backed by containers.
 - **Networks:** Allows services to communicate. By default a single network is setup for your app
-- **Volumes:**  Persistent data store
+- **Volumes:** Persistent data store
 - **Config:** Lets services adapt behavior without need to rebuild.
 - **Secrets:** A special type of config focused on sensitive data. Source of the secret can be a file or environment.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Mounting Volumes for Development 
+### Mounting Volumes for Development
 
 Docker
-````bash
-docker run -v $PWD/src:/app/src my-image
-````
 
-Docker Compose  
-``` yml
-volumes:  
+```bash
+docker run -v $PWD/src:/app/src my-image
+```
+
+Docker Compose
+
+```yml
+volumes:
   - "./app:/usr/src/app/app"
 ```
 
 Need some type of software or tool to watch for changes and restart processes.
 
-
-
 notes:
+
 - **Host Directory:** Where your application code resides. Needs to be an absolute path.
-- **Watch:** Node has nodemon,  Docker compose has  watch. dotnet watch.
+- **Watch:** Node has nodemon, Docker compose has watch. dotnet watch.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Challenges of Manual Setup 
+### Challenges of Manual Setup
+
 - Complexity
 - Configuration Drift
 </div>
@@ -253,7 +256,7 @@ notes:
 <p>Are we seeing the Docker by itself has some issues to address?</p>
 <ul>
 <li><strong>Complexity:</strong> Challenges of managing multiple Docker commands for building, running, and managing containers.</li>
-<li><strong>Configuration Drift:</strong> Difficulty of maintaining consistent configurations across development </li>
+<li><strong>Configuration Drift:</strong> Difficulty of maintaining consistent configurations across development</li>
 <li>environments when done manually.</li>
 </ul>
 </aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
@@ -261,136 +264,141 @@ notes:
 
 ### Dev and Production Needs
 
-<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/Pasted image 20240806061850.png" alt="" style="object-fit: scale-down">
+<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/DevVsProd.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Devcontainers in VS Code
 
-<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/Pasted image 20240703154610.png" alt="" style="object-fit: scale-down">
+<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/DevelopWithinContainer.png" alt="" style="object-fit: scale-down">
 
 
 notes:
+
 - **VS Code Integration:** Dev Containers extension seamlessly integrated within VS Code.
 - **Benefits of Pre-configured Environments:** Devcontainers provide pre-configured development environments with all the necessary tools and dependencies pre-installed, eliminating manual setup.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-###  What you need
+### What you need
 
 - Docker installed locally
-- Docker installed  on  remote environment
-- Visual Studio Code  Extensions
+- Docker installed on remote environment
+- Visual Studio Code Extensions
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/Pasted image 20240811124300.png" alt="" style="object-fit: scale-down">
+<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/DevContainerExtension.png" alt="" style="object-fit: scale-down">
 
- or  
-<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/Pasted image 20240811124338.png" alt="" style="object-fit: scale-down">
+or  
+<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/RemoteExtension.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Devcontainer Configuration File (devcontainer.json) 
-- Location 
-	- `.devcontainer/devcontainer.json`
-	- `.devcontainer.json`
-	- `.devcontainer/<folder>/devcontainer.json` (where `<folder>` is a sub-folder, one level deep)
+### Devcontainer Configuration File (devcontainer.json)
+
+- Location
+  - `.devcontainer/devcontainer.json`
+  - `.devcontainer.json`
+  - `.devcontainer/<folder>/devcontainer.json` (where `<folder>` is a sub-folder, one level deep)
 - Base
-	- Image
-	- Dockerfile
-	- Docker compose
+  - Image
+  - Dockerfile
+  - Docker compose
 
 notes:
 
-- **Location:** Can found in a  number of  places.
-	-  `.devcontainer/devcontainer.json`
-	- `.devcontainer.json`
-	- `.devcontainer/<folder>/devcontainer.json` (where `<folder>` is a sub-folder, one level deep)
-- **Base:** Specify the base image,  Dockerfile or Docker Compose for project.
+- **Location:** Can found in a number of places.
+  - `.devcontainer/devcontainer.json`
+  - `.devcontainer.json`
+  - `.devcontainer/<folder>/devcontainer.json` (where `<folder>` is a sub-folder, one level deep)
+- **Base:** Specify the base image, Dockerfile or Docker Compose for project.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Devcontainer Configuration File (devcontainer.json)  
+### Devcontainer Configuration File (devcontainer.json)
+
 - Features
-	- Tooling - code editors,  linters, debuggers
-	- Runtime 
+  - Tooling - code editors, linters, debuggers
+  - Runtime
 - Post Container Creation
-	- onCreateCommand
-	- UpdateContentCommand
-	- postCreateCommand
+  - onCreateCommand
+  - UpdateContentCommand
+  - postCreateCommand
 - Ports
 
 notes:
-- **Features:**  Shareable units of installation code and development container configuration. (e.g., code editor, linters, debuggers, tooling, runtime).
+
+- **Features:** Shareable units of installation code and development container configuration. (e.g., code editor, linters, debuggers, tooling, runtime).
 - **Post Container Creation:** onCreateCommand, UpdateContentCommand, postCreateCommand
 - **Ports:** Map container ports to host machine ports for accessing the running application (e.g., web server port).
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Devcontainer Configuration File (devcontainer.json)  
+### Devcontainer Configuration File (devcontainer.json)
 
 - Mounts
-	- workspaceMount
-	- workspaceFolder
+  - workspaceMount
+  - workspaceFolder
 - Users
-	- Container User
-	- Remote Use
-
+  - Container User
+  - Remote Use
 
 notes:
 
-DEMO 3  - Show starting a new dev container using pre-built
+DEMO 3 - Show starting a new dev container using pre-built
 
 - **Post Container Creation:** onCreateCommand, UpdateContentCommand, postCreateCommand
 - **Ports:** Map container ports to host machine ports for accessing the running application (e.g., web server port).
-- **Mounts:** workspaceMount sets the default mount point for the source code. workspaceFolder sets the default folder that should be used in the container. 
+- **Mounts:** workspaceMount sets the default mount point for the source code. workspaceFolder sets the default folder that should be used in the container.
 - **Users:** Container User - user to be used for all operations in a container. Remote User - used to run lifecycle scripts.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### How and Why to Share Devcontainer Configurations
 
-- Version  Control
+- Version Control
 - VS Code Dev Container extension
 - Reduce developer on-boarding time
 
 notes:
-- **Version Control:**  `devcontainer.json`  gets the same benefits as source code that is user source control.
+
+- **Version Control:** `devcontainer.json` gets the same benefits as source code that is user source control.
 - **Clone with Devcontainer:** Clone repository with the VS Code Dev Containers extension, which automatically detects and configures the environment.
 - **Seamless Workflow:** Team members can immediately start development without any additional setup.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Manual Setup vs. Devcontainers 
+### Manual Setup vs. Devcontainers
 
--  Manual
-	- Multiple commands
-	- Maintaining configurations across environments and teams
+- Manual
 
--  Dev Containers
-	- Eliminate/Reduced manual setup and configuration.
-    - Constancy across development environments and teams
-    - Reduced tooling and library conflicts
+  - Multiple commands
+  - Maintaining configurations across environments and teams
+
+- Dev Containers
+  - Eliminate/Reduced manual setup and configuration.
+  - Constancy across development environments and teams
+  - Reduced tooling and library conflicts
 
 notes:
-- **Recap Manual Complexities:** 
-    - Managing multiple Docker commands for building, running, and managing containers.
-    - Difficulty in maintaining consistent configurations across environments.
-- **Devcontainers to the Rescue:** 
-    - Pre-configured environments eliminate the need for manual setup and configuration.
-    - Consistent configurations across development environments for everyone on the team.
-    - Reduced tooling and library conflicts
+
+- **Recap Manual Complexities:**
+  - Managing multiple Docker commands for building, running, and managing containers.
+  - Difficulty in maintaining consistent configurations across environments.
+- **Devcontainers to the Rescue:**
+  - Pre-configured environments eliminate the need for manual setup and configuration.
+  - Consistent configurations across development environments for everyone on the team.
+  - Reduced tooling and library conflicts
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Setting Up a Similar Project with Devcontainers
 
-Demo  4 
+Demo 4
 
 notes:
 DEMO 4
-
 
 - **Repeat the Setup Process:** Demonstrate setting up the same project you used earlier for manual Docker setup, but this time using a Devcontainer configuration file.
 - **Speed and Simplicity:** Emphasize the significant difference in speed and simplicity when using Devcontainers compared to manual setup.
@@ -398,11 +406,13 @@ DEMO 4
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Key Takeaways
+
 - Reduced Setup Time
 - Improved Developer Experience
 - Repeatability / Consistency
 
 notes:
+
 - **Reduced Setup Time:** Highlight the dramatic reduction in time spent setting up the development environment.
 - **Improved Developer Experience:** Devcontainers streamline the development process, allowing developers to focus on coding instead of configuration.
 - **Repeatability and Consistency:** Benefit of having a repeatable and consistent development environment for all team members.
@@ -412,40 +422,40 @@ notes:
 ### Best Practices and Tips
 
 - Keep containers lightweight
-- Use  multi-stage builds
+- Use multi-stage builds
 - Performance
-	- `docker info`
-	- Switches  
-		- --memory
-		- --cpus
-	- Image Size and Caching
-
+  - `docker info`
+  - Switches
+    - --memory
+    - --cpus
+  - Image Size and Caching
 
 notes:
+
 - Performance Considerations
-	- **Resource Allocation:** Optimize resource allocation for Devcontainers to ensure smooth development workflows:
-	    - **CPU and Memory Limits:** Setting appropriate CPU and memory limits for containers to avoid resource contention on the host machine.
-	- **Image Size and Caching:** Strategies for managing container image size and leveraging Docker image caching to improve build times.
+  - **Resource Allocation:** Optimize resource allocation for Devcontainers to ensure smooth development workflows:
+    - **CPU and Memory Limits:** Setting appropriate CPU and memory limits for containers to avoid resource contention on the host machine.
+  - **Image Size and Caching:** Strategies for managing container image size and leveraging Docker image caching to improve build times.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Best Practices and Tips
 
 - Security
-	- OWASP Docker Security Cheat Sheet 
+  - OWASP Docker Security Cheat Sheet
 - CI/CD
-	- cache dependencies
-	- create  your own images
+  - cache dependencies
+  - create your own images
 
 notes:
 
-- Security Considerations 
-	- **Base Image Selection:** Choose secure base images for your Devcontainers, ideally from official sources like Docker Hub.
-	- **User Privileges:** Managing user privileges within containers to minimize the attack surface. Using non-root users for development within containers.
-	- **OWASP  Cheat  Sheet:**  https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
-- Integrating with CI/CD Pipelines 
-	- **Leveraging Devcontainer Configurations:**  Devcontainer configurations can be used to define consistent development environments within CI/CD pipelines.
-	- **Benefits for Automated Builds and Testing:** Devcontainer configurations for automated builds and testing in CI/CD pipelines, ensuring consistency across development, testing, and deployment environments.
+- Security Considerations
+  - **Base Image Selection:** Choose secure base images for your Devcontainers, ideally from official sources like Docker Hub.
+  - **User Privileges:** Managing user privileges within containers to minimize the attack surface. Using non-root users for development within containers.
+  - **OWASP Cheat Sheet:** https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html
+- Integrating with CI/CD Pipelines
+  - **Leveraging Devcontainer Configurations:** Devcontainer configurations can be used to define consistent development environments within CI/CD pipelines.
+  - **Benefits for Automated Builds and Testing:** Devcontainer configurations for automated builds and testing in CI/CD pipelines, ensuring consistency across development, testing, and deployment environments.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -458,19 +468,20 @@ notes:
 - Reduced tooling and library conflicts
 
 notes:
+
 - Seamless Development Environment
-	- **Consistency Across Teams:**  Devcontainers in ensuring a consistent and identical development environment for all team members, regardless of their local machine setup. This eliminates compatibility issues and wasted debugging time.
-	- **Reduced Onboarding Time:** Devcontainers streamline onboarding new team members. They can start contributing immediately without spending time on complex environment setup.
+  - **Consistency Across Teams:** Devcontainers in ensuring a consistent and identical development environment for all team members, regardless of their local machine setup. This eliminates compatibility issues and wasted debugging time.
+  - **Reduced Onboarding Time:** Devcontainers streamline onboarding new team members. They can start contributing immediately without spending time on complex environment setup.
 - Consistent Configurations
-	- **Eliminate Manual Setup Variations:** Devcontainers remove the need for manual configuration, preventing inconsistencies and errors that can arise from individual setups.
-	- **Standardized Development Experience:** Everyone on the team works with the same pre-configured environment, leading to a standardized development experience and improved code quality.
-- Resource Efficiency 
-	- **Potential Benefits:** Briefly discuss the potential benefits of Devcontainers for resource efficiency:
-	    - Containerized environments can be lightweight compared to traditional virtual machines.
-	    - Sharing base images across projects can help reduce overall storage footprint.
+  - **Eliminate Manual Setup Variations:** Devcontainers remove the need for manual configuration, preventing inconsistencies and errors that can arise from individual setups.
+  - **Standardized Development Experience:** Everyone on the team works with the same pre-configured environment, leading to a standardized development experience and improved code quality.
+- Resource Efficiency
+  - **Potential Benefits:** Briefly discuss the potential benefits of Devcontainers for resource efficiency:
+    - Containerized environments can be lightweight compared to traditional virtual machines.
+    - Sharing base images across projects can help reduce overall storage footprint.
 - Improved Workflow and Productivity
-	- **Faster Development Cycles:** The time saved on setting up and maintaining development environments translates to faster development cycles and increased developer productivity.
-	- **Focus on Coding:** By eliminating manual configuration tasks, Devcontainers allow developers to focus on what they do best - writing code.
+  - **Faster Development Cycles:** The time saved on setting up and maintaining development environments translates to faster development cycles and increased developer productivity.
+  - **Focus on Coding:** By eliminating manual configuration tasks, Devcontainers allow developers to focus on what they do best - writing code.
 - Reduced tooling and library conflicts
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -482,11 +493,16 @@ notes:
 - Development Containers - https://containers.dev/
 
 notes:
+
 - **Valuable Resources:** Share valuable online resources for learning more about Devcontainers and Docker:
-    - Official Devcontainers documentation
-    - Docker documentation and tutorials
-    - Online communities and forums dedicated to Devcontainers and Docker
+  - Official Devcontainers documentation
+  - Docker documentation and tutorials
+  - Online communities and forums dedicated to Devcontainers and Docker
 - **Active Community:** Highlight the active Devcontainer community available for support and troubleshooting.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 768px; width: 1024px; min-height: 768px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Presentations/From Zero to Code Local Dev with Containers/Assets/Sponsors.png" alt="" style="object-fit: scale-down">
 </div></script></section></div>
     </div>
 
