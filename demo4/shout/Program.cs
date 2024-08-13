@@ -3,9 +3,7 @@ using System.Runtime.CompilerServices;
 
 class Program
 {
-    private static readonly string echoServiceUrl = Environment.GetEnvironmentVariable("ECHO_SERVICE_URL") ??
-        // throw new InvalidOperationException("ECHO_SERVICE_URL environment variable is not set");
-        "http://localhost:5059/e";
+    private static readonly string echoServiceUrl = "http://localhost:5059/e";
     private static readonly HttpClient client = new();
 
     static async Task Main(string[] args)

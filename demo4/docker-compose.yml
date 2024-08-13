@@ -1,24 +1,18 @@
 services:
   echo:
-    image: echo
-    build:
-      context: .
-      dockerfile: echo/Dockerfile
+    image: mcr.microsoft.com/dotnet/sdk:8.0
     ports:
       - 5059:5059
     command: sleep infinity
     volumes:
       - .:/workspace:cached
+    network_mode: host
 
   shout:
-    image: shout
-    depends_on:
-      - echo
-    build:
-      context: .
-      dockerfile: shout/Dockerfile
+    image: mcr.microsoft.com/dotnet/sdk:8.0
     environment:
       - ECHO_SERVICE_URL=http://echo:5059/e
     command: sleep infinity
     volumes:
       - .:/workspace:cached
+    network_mode: host
